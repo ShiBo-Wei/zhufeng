@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        #news{
+            box-sizing: border-box;
+            width: 300px;
+            padding: 20px;
+            border: 2px solid lightblue;
+            margin: 20px auto;
+        }
+        #news li{
+            line-height: 50px;
+            border-bottom:1px dashed lightcoral;
+        }
+        #news li:nth-last-child(1){
+            /*   获取Li中的倒数第一个*/
+            border-bottom: none;
+        }
+    /*    基于CSS实现*/
+    /*    #news li:nth-child(even){*/
+    /*        background-color: lightblue;*/
+    /*    }*/
+    /*    #news li:hover{*/
+    /*        background: aquamarine;*/
+    /*    }*/
+    </style>
+</head>
+<body>
+<ul id="news">
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+    <li>我是第4个li</li>
+    <li>我是第5个li</li>
+</ul>
+<ul id="box">
+    <li>我是第1个</li>
+    <li>我是第2个</li>
+    <li>我是第3个</li>
+    <li>我是第4个</li>
+    <li>我是第5个</li>
+</ul>
+<script>
+    let newsBox = document.getElementById('news')
+    // [context].getElementsByTagName([TagName])：在指定的context范围之内，通过标签名获取一组元素（元素集合 HTMLCollection）=》和数组很相似，也是以数字索引作为属性名，有length存储长度，但是不是数组，属于‘类数组
+    let newslist = newsBox.getElementsByTagName('li')
+    for(let i = 0;i < newslist.length;i++){
+         let curLi = newslist[i]
+        curLi.style.background = i%2 ? '#fff':'#DDD'
+        // if(i%2){
+        //     curLi.style.background = '#fff'
+        // }else{
+        //     curLi.style.background = '#DDD'
+        // }
+        curLi.onmouseover = function (){
+             this.style.background = 'lightblue'
+        }
+        curLi.onmouseout = function (){
+             this.style.background = 'white'
+        }
+    }
+</script>
+</body>
+</html>
+
+

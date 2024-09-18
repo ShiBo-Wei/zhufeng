@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作DOM</title>
+    <style>
+        .RED{
+            color: red;
+        }
+        .box{
+            background-color: red;
+            height: 50px;
+            width: 50px;
+        }
+        .box span{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<!--    <div id="hh">hhhh</div>-->
+<div class="box">
+    <span>珠峰培训</span>
+</div>
+<script>
+    let box1 = document.querySelector('.box')
+    //克隆第一份
+    let box2 = box1.cloneNode(true)
+
+    box2.querySelector('span').innerText='珠峰培训2'
+
+    let box3 = box1.cloneNode(false)
+    box3.innerHTML = '<span>珠峰培训</span>'
+    //true 深克隆会把容器里子元素也克隆过来
+    document.body.appendChild(box2)
+
+    document.body.appendChild(box3)
+
+
+    //=====================
+
+    document.body.removeChild(box2)
+</script>
+</body>
+</html>

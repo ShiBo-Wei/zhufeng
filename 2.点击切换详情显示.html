@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滑过显示详情</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            /*控制width和height是盒子的最终高*/
+            box-sizing: border-box;
+            margin: 20px auto;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid rebeccapurple;
+            position: relative;
+            cursor: pointer;
+        }
+        .box .detail{
+            /*display: none;*/
+            position: absolute;
+            right: -1px;
+            top: 38px;
+            box-sizing: border-box;
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid rebeccapurple;
+            z-index: -1;
+        }
+    /*
+    传统基于操作DOM的方式实现业务需求
+    1.想操作谁就获取谁
+    2.给某元素绑定某事件
+    3.在事件触发是改变样式
+    */
+
+    </style>
+</head>
+<body>
+<!--    基于css实现，需要让区域是按钮子元素-->
+<div class="box" id="box">
+    <span>购物车</span>
+    <div class="detail" id="detail" style="display: none">购物车相关信息</div>
+</div>
+<script>
+    //document.getElementById([ID]) 通过元素ID获取到该元素
+    let box = document.getElementById('box')
+    let detail = document.getElementById('detail')
+
+    box.onclick = function (){
+        //元素对象.style.xxx=xxx：修改元素的某一个值(操作的是行内样式,所以如果我们没有把样式写在行内上，在JS中基于.style.xxx 的方式是无法获取到样式的)
+        //1.首先获取元素原有的样式：元素.style.xxx就是获取
+        let n = detail.style.display
+    if(n === 'none'){
+        detail.style.display = 'block'
+        box.style.borderBottomColor ='#fff'
+    }else{
+        detail.style.display = 'none'
+        box.style.borderBottomColor ='rebeccapurple'
+    }
+    }
+</script>
+</body>
+</html>

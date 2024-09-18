@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="tabBox" id="tabBox">
+        <ul class="tab" id="tab">
+            <li>第1个页卡</li>
+            <li>第2个页卡</li>
+            <li>第3个页卡</li>
+        </ul>
+        <div>
+            第1个要展示
+            <ul class="news">
+                <li>热门新闻1</li>
+                <li>热门新闻2</li>
+                <li>热门新闻3</li>
+                <li>热门新闻4</li>
+                <li>热门新闻5</li>
+            </ul>
+        </div>
+        <div>
+            第2个要展示的内容
+            <div class="detail"></div>
+        </div>
+        <div>第3个要展示</div>
+    </div>
+    <div class="formBox">
+        性别
+        <input type="radio" name="sex" checked value="男">男
+        <input type="radio" name="sex" value="女">女<!--name在表单中是用来分组的-->
+        <input type="radio" name="sex" value="未知">未知
+    </div>
+    <button id="submit">看我选中了谁</button>
+
+<script>
+    let navList = document.querySelectorAll('.tab li')
+    let divList = document.querySelectorAll('.tabBox>div')
+
+    // let sexList = document.getElementsByName('sex')
+    // let submit = document.getElementById('submit')
+
+    let submit = document.querySelector('#submit')
+    let sexList = document.querySelectorAll('[name=sex]')
+
+    submit.onclick = function (){
+        let res = null
+        for(let i = 0;i<sexList.length;i++){
+            let item = sexList[i]
+            if(item.checked){
+                res = item.value
+                break
+            }
+        }
+        alert(res)
+    }
+</script>
+</body>
+</html>

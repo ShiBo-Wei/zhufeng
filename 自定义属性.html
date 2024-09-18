@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+
+<script>
+    var btns = document.querySelectorAll('button')
+
+    for (var i = 0;i<btns.length;i++){
+
+        // btn[i].myIndex = i
+
+        //设置自定义属性，基于SER-ARRTIBUTE是把属性信息写到了元素标签的结构上，并没有放到元素对象堆内存上
+        btns[i].setAttribute('data-index',1)
+        btns[i].onclick =function () {
+            // alert(this.myIndex)
+
+            alert(this.getAttribute('data-index'))
+        }
+    }
+</script>
+</body>
+</html>

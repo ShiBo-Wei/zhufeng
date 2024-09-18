@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        button{
+            margin-left: 40px;
+            margin-top: 20px;
+            padding: 20px;
+            line-height: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点我实现切换按钮</button>
+    <script>
+        let body = document.body
+        let btn = document.getElementById('btn')
+        let bgColor = ['red' , 'green' ,'white' ,'black' ,'orange']
+        let i = 4
+        btn.onclick = function (){
+            console.log(i)
+            body.style.backgroundColor = bgColor[(i%4)]
+            i++
+            console.log(i)
+        }
+    </script>
+</body>
+</html>
